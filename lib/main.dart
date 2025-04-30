@@ -46,20 +46,59 @@ class HighlightedColumnScreen extends StatelessWidget {
         title: const Text('Tela com Coluna Destacada'),
       ),
       body: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          // Coluna da Esquerda (será destacada)
           Expanded(
-            flex: 1, // Define a proporção do espaço que a coluna ocupa
+            flex: 1,
             child: Container(
-              color: Colors.lightGreenAccent,
-              child: const Center(child: Text('Coluna Esquerda')),
+              padding: const EdgeInsets.all(16.0),
+              decoration: BoxDecoration(
+                color: Colors.blue[50],
+                border: Border(
+                  right: BorderSide(
+                    color: Colors.blue[200]!,
+                    width: 1.0,
+                  ),
+                ),
+              ),
+              child: const Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Left Column Highlighted',
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.blueGrey,
+                    ),
+                  ),
+                  SizedBox(height: 10),
+                  Text('Conteúdo adicional da coluna esquerda...'),
+                ],
+              ),
             ),
           ),
           Expanded(
             flex: 2,
             child: Container(
-              color: Colors.lightBlueAccent,
-              child: const Center(child: Text('Coluna Direita')),
+              padding: const EdgeInsets.all(16.0),
+              color: Colors.white,
+              child: const Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                   Text(
+                    'Conteúdo Principal',
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  SizedBox(height: 10),
+                  Text('Aqui vai o restante do conteúdo da aplicação, ocupando a maior parte da tela.'),
+                  SizedBox(height: 20),
+                  Placeholder(fallbackHeight: 100),
+                ],
+              ),
             ),
           ),
         ],
