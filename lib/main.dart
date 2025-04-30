@@ -43,10 +43,26 @@ class HighlightedColumnScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Tela'),
+        title: const Text('Tela com Coluna Destacada'),
       ),
-      body: const Center(
-        child: Text('Conteúdo da tela'),
+      body: Row(
+        children: <Widget>[
+          // Coluna da Esquerda (será destacada)
+          Expanded(
+            flex: 1, // Define a proporção do espaço que a coluna ocupa
+            child: Container(
+              color: Colors.lightGreenAccent,
+              child: const Center(child: Text('Coluna Esquerda')),
+            ),
+          ),
+          Expanded(
+            flex: 2,
+            child: Container(
+              color: Colors.lightBlueAccent,
+              child: const Center(child: Text('Coluna Direita')),
+            ),
+          ),
+        ],
       ),
     );
   }
